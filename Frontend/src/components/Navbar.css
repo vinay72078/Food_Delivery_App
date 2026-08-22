@@ -115,7 +115,20 @@
   font-weight: 500;
   transition: background 0.2s ease;
 }
+.navbar-admin-button {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: inherit;
+  border: 1px solid currentColor;
+  transition: all 0.2s ease;
+}
 
+.navbar-admin-button:hover {
+  opacity: 0.8;
+}
 .navbar-user-button:hover {
   background: #f5f5f5;
 }
