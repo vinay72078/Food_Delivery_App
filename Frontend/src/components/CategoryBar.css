@@ -1,0 +1,44 @@
+.category-bar {
+  width: 100%;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.category-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+}
+
+.category-button {
+  height: 38px;
+  padding: 0 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #666666;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.category-button:hover {
+  border-color: #cfcfcf;
+  color: #171717;
+}
+
+.category-button.active {
+  border-color: #171717;
+  background: #171717;
+  color: #ffffff;
+}
