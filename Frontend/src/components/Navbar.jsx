@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LogOut, Search, ShoppingBag, UserRound } from "lucide-react";
+import { LogOut, Search, ShoppingBag, UserRound, ShieldCheck } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import "./Navbar.css";
 
@@ -7,6 +7,7 @@ function Navbar() {
   const { getCartCount } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
+
   const user = JSON.parse(localStorage.getItem("user") || "null");
   const cartCount = getCartCount();
 
@@ -18,7 +19,10 @@ function Navbar() {
 
   const handleSearchClick = () => {
     const focusSearch = () => {
-      document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("menu")?.scrollIntoView({
+        behavior: "smooth",
+      });
+
       setTimeout(() => {
         document.getElementById("food-search-input")?.focus();
       }, 300);
@@ -34,24 +38,36 @@ function Navbar() {
 
   const handleMenuClick = (e) => {
     e.preventDefault();
+
     if (location.pathname === "/") {
-      document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("menu")?.scrollIntoView({
+        behavior: "smooth",
+      });
     } else {
       navigate("/");
+
       setTimeout(() => {
-        document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("menu")?.scrollIntoView({
+          behavior: "smooth",
+        });
       }, 100);
     }
   };
 
   const handleAboutClick = (e) => {
     e.preventDefault();
+
     if (location.pathname === "/") {
-      document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("about")?.scrollIntoView({
+        behavior: "smooth",
+      });
     } else {
       navigate("/");
+
       setTimeout(() => {
-        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById("about")?.scrollIntoView({
+          behavior: "smooth",
+        });
       }, 100);
     }
   };
@@ -59,27 +75,54 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar-container">
+
+        {/* Logo */}
         <Link to="/" className="navbar-logo">
           <span className="navbar-logo-mark">F</span>
           <span>Foodie</span>
         </Link>
 
+        {/* Navigation */}
         <nav className="navbar-links">
           <Link to="/" className="navbar-link">
             Home
           </Link>
-          <a href="/#menu" className="navbar-link" onClick={handleMenuClick}>
+
+          <a
+            href="/#menu"
+            className="navbar-link"
+            onClick={handleMenuClick}
+          >
             Menu
           </a>
-          <a href="/#about" className="navbar-link" onClick={handleAboutClick}>
+
+          <a
+            href="/#about"
+            className="navbar-link"
+            onClick={handleAboutClick}
+          >
             About
           </a>
+
           <Link to="/orders" className="navbar-link">
             Orders
           </Link>
         </nav>
 
+        {/* Actions */}
         <div className="navbar-actions">
+
+          {/* Admin Login */}
+          <Link
+            to="/admin/login"
+            className="navbar-admin-button"
+            aria-label="Admin Login"
+          >
+            <ShieldCheck size={17} strokeWidth={1.8} />
+            <span>Admin</span>
+          </Link>
+
+          {/* Search */}
           <button
             className="navbar-icon-button"
             type="button"
@@ -89,17 +132,28 @@ function Navbar() {
             <Search size={20} strokeWidth={1.8} />
           </button>
 
-          <Link to="/cart" className="navbar-icon-button navbar-cart" aria-label="Shopping cart">
+          {/* Cart */}
+          <Link
+            to="/cart"
+            className="navbar-icon-button navbar-cart"
+            aria-label="Shopping cart"
+          >
             <ShoppingBag size={20} strokeWidth={1.8} />
-            {cartCount > 0 && <span className="navbar-cart-count">{cartCount}</span>}
-          </Link>
-          <Link to="/admin/login" className="navbar-admin-button">
-  Admin
-</Link>
 
+            {cartCount > 0 && (
+              <span className="navbar-cart-count">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          {/* User */}
           {user ? (
             <div className="navbar-user-menu">
-              <span className="navbar-username">{user.username || "Account"}</span>
+              <span className="navbar-username">
+                {user.username || "Account"}
+              </span>
+
               <button
                 type="button"
                 className="navbar-logout-button"
@@ -110,11 +164,15 @@ function Navbar() {
               </button>
             </div>
           ) : (
-            <Link to="/login" className="navbar-user-button">
+            <Link
+              to="/login"
+              className="navbar-user-button"
+            >
               <UserRound size={18} strokeWidth={1.8} />
               <span>Account</span>
             </Link>
           )}
+
         </div>
       </div>
     </header>
