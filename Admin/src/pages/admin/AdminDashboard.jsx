@@ -293,10 +293,18 @@ function AdminDashboard() {
                     <div className="admin-item-name">
                       <div className="admin-item-thumb">
                         {item.image ? (
-                          <img src={item.image} alt={item.name} />
-                        ) : (
-                          <span>{item.name?.charAt(0)?.toUpperCase()}</span>
-                        )}
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            onError={(e) => {
+                              e.target.style.display = "none";
+                              e.target.nextSibling.style.display = "flex";
+                            }}
+                          />
+                        ) : null}
+                        <span style={{ display: item.image ? "none" : "flex" }}>
+                          {item.name?.charAt(0)?.toUpperCase()}
+                        </span>
                       </div>
                       <div>
                         <strong>{item.name}</strong>
