@@ -112,16 +112,6 @@ function Navbar() {
         {/* Actions */}
         <div className="navbar-actions">
 
-          {/* Admin Login */}
-          <Link
-            to="/admin/login"
-            className="navbar-admin-button"
-            aria-label="Admin Login"
-          >
-            <ShieldCheck size={17} strokeWidth={1.8} />
-            <span>Admin</span>
-          </Link>
-
           {/* Search */}
           <button
             className="navbar-icon-button"
