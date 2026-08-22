@@ -93,6 +93,9 @@ function Navbar() {
             <ShoppingBag size={20} strokeWidth={1.8} />
             {cartCount > 0 && <span className="navbar-cart-count">{cartCount}</span>}
           </Link>
+          <Link to="/admin/login" className="navbar-admin-button">
+  Admin
+</Link>
 
           {user ? (
             <div className="navbar-user-menu">
