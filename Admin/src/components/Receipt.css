@@ -1,16 +1,33 @@
+/* =========================================
+   RECEIPT
+========================================= */
+
 .receipt {
-  width: 320px;
+  width: min(320px, 100%);
+  box-sizing: border-box;
+
   background: #ffffff;
+
   border: 1px solid #e5e5e5;
   border-radius: 12px;
+
   padding: 1.5rem;
+
   font-family: inherit;
   color: #171717;
+
+  overflow: hidden;
 }
+
+/* =========================================
+   RECEIPT HEADER
+========================================= */
 
 .receipt-header {
   text-align: center;
+
   border-bottom: 2px dashed #e5e5e5;
+
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
@@ -19,118 +36,329 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   gap: 0.5rem;
+
   font-size: 1.25rem;
   font-weight: 700;
+
   color: #171717;
+
   margin-bottom: 0.5rem;
 }
 
 .receipt-title {
   font-size: 0.8rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
+
   color: #777777;
 }
 
 .receipt-order-id {
+  margin-top: 0.25rem;
+
   font-size: 0.9rem;
   font-weight: 600;
+
   color: #171717;
-  margin-top: 0.25rem;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
+/* =========================================
+   SECTIONS
+========================================= */
+
 .receipt-section {
+  width: 100%;
+
   margin-bottom: 1rem;
+
+  min-width: 0;
 }
 
 .receipt-section-title {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #999999;
   margin-bottom: 0.5rem;
+
+  font-size: 0.7rem;
   font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.06em;
+
+  color: #999999;
 }
 
+/* =========================================
+   RECEIPT ROW
+========================================= */
+
 .receipt-row {
+  width: 100%;
+
   display: flex;
+
   justify-content: space-between;
-  align-items: center;
-  padding: 0.2rem 0;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 0.25rem 0;
+
   font-size: 0.85rem;
+
+  box-sizing: border-box;
 }
 
 .receipt-row span {
+  flex: 0 0 auto;
+
   color: #777777;
 }
 
 .receipt-row strong {
+  flex: 1 1 auto;
+  min-width: 0;
+
   color: #171717;
+
   font-weight: 600;
+
   text-align: right;
+
+  /*
+    IMPORTANT:
+    Long email, name, phone etc.
+    will wrap inside the receipt.
+  */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
+
+/* =========================================
+   ADDRESS
+========================================= */
 
 .receipt-address {
-  font-size: 0.85rem;
-  color: #171717;
-  line-height: 1.5;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 0.75rem;
+
   background: #fafafa;
+
   border: 1px solid #eeeeee;
   border-radius: 8px;
-  padding: 0.75rem;
+
+  color: #171717;
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+
+  /*
+    Prevent long address from overflowing.
+  */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  white-space: normal;
 }
 
+/* =========================================
+   ITEMS
+========================================= */
+
 .receipt-items {
+  width: 100%;
+
   border-top: 1px solid #eeeeee;
+
+  box-sizing: border-box;
 }
 
 .receipt-item {
+  width: 100%;
+
   display: flex;
+
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  gap: 10px;
+
   padding: 0.5rem 0;
+
   border-bottom: 1px solid #f5f5f5;
+
   font-size: 0.85rem;
+
+  box-sizing: border-box;
 }
 
 .receipt-item-info {
+  min-width: 0;
+
+  flex: 1;
+
   display: flex;
-  align-items: center;
+
+  align-items: flex-start;
+
   gap: 0.5rem;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.receipt-item-info > span:last-child {
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .receipt-item-qty {
+  flex-shrink: 0;
+
   color: #999999;
+
   font-weight: 600;
 }
 
+.receipt-item > span:last-child {
+  flex-shrink: 0;
+
+  color: #171717;
+
+  font-weight: 600;
+
+  text-align: right;
+}
+
+/* =========================================
+   TOTAL
+========================================= */
+
 .receipt-total {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
+  gap: 10px;
+
   border-top: 2px dashed #e5e5e5;
+
   padding-top: 0.75rem;
   margin-top: 0.5rem;
+
   font-size: 1rem;
 }
 
-.receipt-total strong {
-  font-size: 1.1rem;
+.receipt-total span {
   color: #171717;
 }
 
-.receipt-footer {
-  text-align: center;
-  font-size: 0.75rem;
-  color: #999999;
-  border-top: 2px dashed #e5e5e5;
-  padding-top: 0.75rem;
-  margin-top: 1rem;
+.receipt-total strong {
+  flex-shrink: 0;
+
+  font-size: 1.1rem;
+
+  color: #171717;
 }
 
-/* Print styles */
+/* =========================================
+   FOOTER
+========================================= */
+
+.receipt-footer {
+  text-align: center;
+
+  font-size: 0.75rem;
+
+  color: #999999;
+
+  border-top: 2px dashed #e5e5e5;
+
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .receipt {
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 1.1rem;
+
+    border-radius: 10px;
+  }
+
+  .receipt-row {
+    gap: 8px;
+
+    font-size: 0.82rem;
+  }
+
+  .receipt-address {
+    padding: 0.7rem;
+
+    font-size: 0.82rem;
+  }
+
+  .receipt-item {
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+
+  .receipt {
+    padding: 0.9rem;
+  }
+
+  .receipt-row {
+    font-size: 0.78rem;
+  }
+
+  .receipt-address {
+    font-size: 0.78rem;
+  }
+
+  .receipt-item {
+    font-size: 0.78rem;
+  }
+
+  .receipt-logo {
+    font-size: 1.1rem;
+  }
+}
+
+/* =========================================
+   PRINT STYLES
+========================================= */
+
 @media print {
+
   body * {
     visibility: hidden;
   }
@@ -142,12 +370,18 @@
 
   .receipt {
     position: absolute;
+
     left: 0;
     top: 0;
+
     width: 100%;
+
     border: none;
     border-radius: 0;
+
     padding: 0;
+
+    overflow: visible;
   }
 
   .receipt-header,
@@ -158,6 +392,7 @@
 
   .receipt-address {
     background: #ffffff;
+
     border-color: #000000;
   }
 
