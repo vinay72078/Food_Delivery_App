@@ -1,197 +1,556 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+
   width: 100%;
+  height: 68px;
+
   background: rgba(255, 255, 255, 0.96);
+
   border-bottom: 1px solid #eeeeee;
-  backdrop-filter: blur(10px);
+
+  backdrop-filter: blur(12px);
 }
 
 .navbar-container {
   width: min(1200px, calc(100% - 40px));
-  height: 72px;
+  height: 100%;
+
   margin: 0 auto;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+
+  gap: 30px;
 }
 
+/* =========================================
+   LOGO
+========================================= */
+
 .navbar-logo {
+  flex-shrink: 0;
+
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+  gap: 8px;
+
   color: #171717;
+
   font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
+  font-weight: 750;
+
+  text-decoration: none;
+  letter-spacing: -0.5px;
 }
 
 .navbar-logo-mark {
   width: 34px;
   height: 34px;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border-radius: 9px;
-  background: #171717;
+
+  background: #ff5a36;
   color: #ffffff;
-  font-size: 17px;
-  font-weight: 700;
+
+  font-size: 18px;
+  font-weight: 800;
 }
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+
+  gap: 28px;
+
+  margin-left: auto;
 }
 
 .navbar-link {
   color: #666666;
+
   font-size: 14px;
   font-weight: 500;
+
+  text-decoration: none;
+
   transition: color 0.2s ease;
 }
 
 .navbar-link:hover {
-  color: #171717;
+  color: #ff5a36;
 }
+
+/* =========================================
+   DESKTOP ACTIONS
+========================================= */
 
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
 
-.navbar-icon-button,
-.navbar-user-button {
-  border: 0;
-  background: transparent;
-  color: #333333;
+  gap: 8px;
 }
 
 .navbar-icon-button {
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
   border-radius: 9px;
-  transition: background 0.2s ease;
+
+  background: transparent;
+  color: #333333;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .navbar-icon-button:hover {
-  background: #f5f5f5;
+  background: #fff1ed;
+  color: #ff5a36;
 }
 
-.navbar-cart {
-  position: relative;
-}
+/* =========================================
+   CART
+========================================= */
 
 .navbar-cart-count {
   position: absolute;
-  top: 2px;
-  right: 1px;
+
+  top: 1px;
+  right: 0;
+
   min-width: 16px;
   height: 16px;
-  padding: 0 4px;
-  display: grid;
-  place-items: center;
-  border-radius: 999px;
-  background: #171717;
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 600;
-}
 
-.navbar-user-button {
-  height: 40px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 0 12px;
-  border-radius: 9px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.2s ease;
-}
-.navbar-admin-button {
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: inherit;
-  border: 1px solid currentColor;
-  transition: all 0.2s ease;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  border-radius: 20px;
+
+  background: #ff5a36;
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 700;
 }
 
-.navbar-admin-button:hover {
-  opacity: 0.8;
-}
-.navbar-user-button:hover {
-  background: #f5f5f5;
-}
+/* =========================================
+   USER
+========================================= */
 
 .navbar-user-menu {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  margin-left: 4px;
+  gap: 7px;
+
+  padding-left: 5px;
 }
 
 .navbar-username {
-  max-width: 110px;
+  max-width: 100px;
+
   overflow: hidden;
-  text-overflow: ellipsis;
+
+  color: #444444;
+
+  font-size: 13px;
+  font-weight: 600;
+
   white-space: nowrap;
-  color: #333333;
-  font-size: 14px;
-  font-weight: 500;
+  text-overflow: ellipsis;
 }
 
 .navbar-logout-button {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 0;
-  border-radius: 9px;
+  border-radius: 8px;
+
   background: transparent;
-  color: #666666;
-  transition: background 0.2s ease, color 0.2s ease;
+  color: #555555;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .navbar-logout-button:hover {
-  background: #fef2f2;
-  color: #dc2626;
+  background: #fff1ed;
+  color: #ff5a36;
 }
 
-@media (max-width: 700px) {
+.navbar-user-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #333333;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.navbar-user-button:hover {
+  border-color: #ff8a70;
+  background: #fff7f4;
+}
+
+/* =========================================
+   MOBILE ACTIONS
+========================================= */
+
+.mobile-top-actions {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
   .navbar-container {
-    width: min(100% - 24px, 1200px);
-    height: 64px;
+    gap: 15px;
   }
+
+  .navbar-links {
+    gap: 18px;
+  }
+
+  .navbar-username {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 62px;
+  }
+
+  /*
+     IMPORTANT:
+     Logo and all icons stay on the SAME ROW.
+  */
+
+  .navbar-container {
+    width: 100%;
+    height: 62px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+  }
+
+  /* Logo stays on LEFT */
+
+  .navbar-logo {
+    flex-shrink: 0;
+
+    font-size: 18px;
+  }
+
+  .navbar-logo-mark {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 8px;
+
+    font-size: 17px;
+  }
+
+  /* Hide desktop nav */
 
   .navbar-links {
     display: none;
   }
 
-  .navbar-user-button span {
+  /* Hide desktop actions */
+
+  .navbar-actions {
     display: none;
   }
 
-  .navbar-user-button {
-    width: 40px;
+  /* =====================================
+     MOBILE ICONS
+  ===================================== */
+
+  .mobile-top-actions {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 2px;
+
+    margin-left: auto;
+  }
+
+  .mobile-top-icon {
+    position: relative;
+
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 0;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #333333;
+
+    text-decoration: none;
+
+    cursor: pointer;
   }
 
-  .navbar-user-menu {
-    margin-left: 0;
+  .mobile-top-icon:hover {
+    background: #fff1ed;
+    color: #ff5a36;
   }
 
-  .navbar-username {
+  /* =====================================
+     CART COUNT
+  ===================================== */
+
+  .mobile-top-cart-count {
+    position: absolute;
+
+    top: 1px;
+    right: 0;
+
+    min-width: 15px;
+    height: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 3px;
+
+    border-radius: 20px;
+
+    background: #ff5a36;
+    color: #ffffff;
+
+    font-size: 8px;
+    font-weight: 700;
+  }
+
+  /* =====================================
+     HAMBURGER
+  ===================================== */
+
+  .navbar-menu-button {
+    width: 37px;
+    height: 37px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #f5f5f5;
+    color: #333333;
+
+    cursor: pointer;
+  }
+
+  .navbar-menu-button:hover {
+    background: #fff1ed;
+    color: #ff5a36;
+  }
+
+  /* =====================================
+     MOBILE DROPDOWN
+  ===================================== */
+
+  .mobile-nav {
+    position: absolute;
+
+    top: 62px;
+    left: 0;
+
+    width: 100%;
+
     display: none;
+    flex-direction: column;
+
+    padding: 8px 0;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eeeeee;
+
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .mobile-nav.active {
+    display: flex;
+  }
+
+  .mobile-nav a {
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 20px;
+
+    box-sizing: border-box;
+
+    color: #333333;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .mobile-nav a:hover {
+    background: #fff3ef;
+    color: #ff5a36;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 430px) {
+
+  .navbar-container {
+    padding: 0 7px;
+    gap: 3px;
+  }
+
+  .navbar-logo {
+    font-size: 17px;
+    gap: 5px;
+  }
+
+  .navbar-logo-mark {
+    width: 30px;
+    height: 30px;
+
+    font-size: 16px;
+  }
+
+  .mobile-top-actions {
+    gap: 0;
+  }
+
+  .mobile-top-icon {
+    width: 33px;
+    height: 33px;
+  }
+
+  .navbar-menu-button {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+
+  .navbar-logo span:last-child {
+    display: none;
+  }
+
+  .navbar-logo-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .mobile-top-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .navbar-menu-button {
+    width: 33px;
+    height: 33px;
   }
 }
